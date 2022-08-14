@@ -1,5 +1,5 @@
 //
-//  CoreDataOperationManager.swift
+//  Favorite+Operations.swift
 //  APOD
 //
 //  Created by Patel, Mohit on 14/08/22.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 /// class that manage all core data oprations
-class CoreDataOperationManager {
+extension Favorite {
     /**
      Function to delete favorite object
      - parameter date: date for which object need to delete

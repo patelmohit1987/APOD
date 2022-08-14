@@ -38,7 +38,7 @@ class FavoriteViewModel {
      Function to fetch list of favorites
      */
     func fetchFavoritePictures() {
-        arrFavorite = CoreDataOperationManager.fetchFavorites()
+        arrFavorite = Favorite.fetchFavorites()
         delegate?.reloadTableView()
         if let arr = arrFavorite, arr.count > 0 {
             delegate?.toggleNoRecordLabel(isRecordFound: true)

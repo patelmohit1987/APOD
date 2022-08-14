@@ -34,8 +34,8 @@
 		757E1BAF28A7BF0D00E1CF61 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BAE28A7BF0D00E1CF61 /* CoreDataStack.swift */; };
 		757E1BBA28A8BDF500E1CF61 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BB828A8BDF500E1CF61 /* Favorite+CoreDataClass.swift */; };
 		757E1BBB28A8BDF500E1CF61 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BB928A8BDF500E1CF61 /* Favorite+CoreDataProperties.swift */; };
-		757E1BBD28A8D75500E1CF61 /* CoreDataOperationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BBC28A8D75500E1CF61 /* CoreDataOperationManager.swift */; };
 		757E1BC228A8E9E100E1CF61 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BC128A8E9E100E1CF61 /* FavoriteCell.swift */; };
+		757E1BC428A91DC700E1CF61 /* Favorite+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BC328A91DC600E1CF61 /* Favorite+Operations.swift */; };
 		B33B8943EC3C9BB8F36895A9 /* Pods_APOD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8C234B564714BCE91EC8DD /* Pods_APOD.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,8 +90,8 @@
 		757E1BAE28A7BF0D00E1CF61 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		757E1BB828A8BDF500E1CF61 /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataClass.swift"; sourceTree = "<group>"; };
 		757E1BB928A8BDF500E1CF61 /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		757E1BBC28A8D75500E1CF61 /* CoreDataOperationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataOperationManager.swift; sourceTree = "<group>"; };
 		757E1BC128A8E9E100E1CF61 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		757E1BC328A91DC600E1CF61 /* Favorite+Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favorite+Operations.swift"; sourceTree = "<group>"; };
 		FC8F1AE1F6D61BFBE2B1A017 /* Pods-APOD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APOD.release.xcconfig"; path = "Target Support Files/Pods-APOD/Pods-APOD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -357,7 +357,6 @@
 			children = (
 				757E1BBE28A8D76400E1CF61 /* ManageObject */,
 				757E1BAE28A7BF0D00E1CF61 /* CoreDataStack.swift */,
-				757E1BBC28A8D75500E1CF61 /* CoreDataOperationManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -375,6 +374,7 @@
 			children = (
 				757E1BB828A8BDF500E1CF61 /* Favorite+CoreDataClass.swift */,
 				757E1BB928A8BDF500E1CF61 /* Favorite+CoreDataProperties.swift */,
+				757E1BC328A91DC600E1CF61 /* Favorite+Operations.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -573,10 +573,10 @@
 				757E1BBB28A8BDF500E1CF61 /* Favorite+CoreDataProperties.swift in Sources */,
 				757E1B8D28A3E6F400E1CF61 /* APODRequest+ResponseFactory.swift in Sources */,
 				757E1BAF28A7BF0D00E1CF61 /* CoreDataStack.swift in Sources */,
+				757E1BC428A91DC700E1CF61 /* Favorite+Operations.swift in Sources */,
 				757E1B0A28A39EB700E1CF61 /* AppDelegate.swift in Sources */,
 				757E1B9928A5408900E1CF61 /* Constant.swift in Sources */,
 				757E1BA328A79A1E00E1CF61 /* PlayVideoViewController.swift in Sources */,
-				757E1BBD28A8D75500E1CF61 /* CoreDataOperationManager.swift in Sources */,
 				757E1BA128A64FC100E1CF61 /* Date+StringDate.swift in Sources */,
 				757E1B9028A5239B00E1CF61 /* APODResponseModel.swift in Sources */,
 				757E1B8B28A3CA9300E1CF61 /* APODRequest.swift in Sources */,

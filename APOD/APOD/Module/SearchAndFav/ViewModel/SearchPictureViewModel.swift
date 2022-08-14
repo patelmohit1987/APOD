@@ -64,8 +64,8 @@ class SearchPictureViewModel: BaseViewModel {
         guard let objAPOD = objAPOD else {
             return
         }
-        if let date = objAPOD.date, !CoreDataOperationManager.isAlreadyMarkedFavorite(date: date) {
-            CoreDataOperationManager.saveToFavorite(objAPOD: objAPOD)
+        if let date = objAPOD.date, !Favorite.isAlreadyMarkedFavorite(date: date) {
+            Favorite.saveToFavorite(objAPOD: objAPOD)
         } else {
             print("Already added to favorite")
         }
@@ -79,11 +79,11 @@ class SearchPictureViewModel: BaseViewModel {
             
         if flow == .search {
             if let objAPOD = objAPOD, let date = objAPOD.date {
-                CoreDataOperationManager.deleteFromFavorite(date: date)
+                Favorite.deleteFromFavorite(date: date)
             }
         } else {
             if let objFav = objFav, let date = objFav.date {
-                CoreDataOperationManager.deleteFromFavorite(date: date)
+                Favorite.deleteFromFavorite(date: date)
             }
         }
     }
@@ -94,12 +94,12 @@ class SearchPictureViewModel: BaseViewModel {
     func isAlreadyAddedToFavorite() -> Bool {
         if flow == .search {
             if let objAPOD = objAPOD, let date = objAPOD.date {
-                return CoreDataOperationManager.isAlreadyMarkedFavorite(date: date)
+                return Favorite.isAlreadyMarkedFavorite(date: date)
             }
             return false
         } else {
             if let objFav = objFav, let date = objFav.date {
-                return CoreDataOperationManager.isAlreadyMarkedFavorite(date: date)
+                return Favorite.isAlreadyMarkedFavorite(date: date)
             }
             return false
         }
