@@ -39,6 +39,7 @@
 		757E1BD228A922AC00E1CF61 /* LastSearch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BD028A922AC00E1CF61 /* LastSearch+CoreDataClass.swift */; };
 		757E1BD328A922AC00E1CF61 /* LastSearch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BD128A922AC00E1CF61 /* LastSearch+CoreDataProperties.swift */; };
 		757E1BD528A9231300E1CF61 /* LastSearch+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BD428A9231300E1CF61 /* LastSearch+Operation.swift */; };
+		757E1BD728A9271B00E1CF61 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757E1BD628A9271B00E1CF61 /* ReachabilityManager.swift */; };
 		B33B8943EC3C9BB8F36895A9 /* Pods_APOD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A8C234B564714BCE91EC8DD /* Pods_APOD.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		757E1BD028A922AC00E1CF61 /* LastSearch+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastSearch+CoreDataClass.swift"; sourceTree = "<group>"; };
 		757E1BD128A922AC00E1CF61 /* LastSearch+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastSearch+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		757E1BD428A9231300E1CF61 /* LastSearch+Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LastSearch+Operation.swift"; sourceTree = "<group>"; };
+		757E1BD628A9271B00E1CF61 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		FC8F1AE1F6D61BFBE2B1A017 /* Pods-APOD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APOD.release.xcconfig"; path = "Target Support Files/Pods-APOD/Pods-APOD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -261,6 +263,7 @@
 				757E1B8828A3CA4900E1CF61 /* APIRequest */,
 				757E1B8528A3C73700E1CF61 /* EnvironmentProvider */,
 				757E1B8228A3C09000E1CF61 /* Managers */,
+				757E1BD828A9271F00E1CF61 /* ReachablityManager */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -402,6 +405,14 @@
 				757E1BD428A9231300E1CF61 /* LastSearch+Operation.swift */,
 			);
 			path = LastSearch;
+			sourceTree = "<group>";
+		};
+		757E1BD828A9271F00E1CF61 /* ReachablityManager */ = {
+			isa = PBXGroup;
+			children = (
+				757E1BD628A9271B00E1CF61 /* ReachabilityManager.swift */,
+			);
+			path = ReachablityManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -585,6 +596,7 @@
 				757E1BD528A9231300E1CF61 /* LastSearch+Operation.swift in Sources */,
 				757E1BAA28A7B4E600E1CF61 /* BaseViewModel.swift in Sources */,
 				757E1B1428A39EB800E1CF61 /* APOD.xcdatamodeld in Sources */,
+				757E1BD728A9271B00E1CF61 /* ReachabilityManager.swift in Sources */,
 				757E1B8428A3C09000E1CF61 /* NetworkRequest.swift in Sources */,
 				757E1B9428A5246800E1CF61 /* UIImageView+OnlineImage.swift in Sources */,
 				757E1BD228A922AC00E1CF61 /* LastSearch+CoreDataClass.swift in Sources */,

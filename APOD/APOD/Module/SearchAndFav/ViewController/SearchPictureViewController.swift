@@ -57,16 +57,14 @@ class SearchPictureViewController: UIViewController {
         if searchPictureViewModel.flow == .search {
             searchPictureViewModel.getPictureDetail()
         } else {
-            updateUIWithFav()
+            self.updateUIWithFav()
         }
         
     }
     
     private func updateUIWith(objAPOD: APODResponseModel) {
         scrollView.isHidden = false
-        lblDate.text = objAPOD.date
-        lblTitle.text = objAPOD.title
-        lblExplanation.text = objAPOD.explanation
+        
         var str: String? = objAPOD.hdurl
         if objAPOD.media_type == APIJSONKeys.video {
             str = objAPOD.thumbnail_url
@@ -74,17 +72,7 @@ class SearchPictureViewController: UIViewController {
         } else {
             btnPlay.isHidden = true
         }
-        if let strURL = str, let url = URL(string: strURL) {
-            activityIndicatorImageLoading.startAnimating()
-            imgView.getImageFromServer(url: url) { isSuccess in
-                self.activityIndicatorImageLoading.stopAnimating()
-            }
-        }
-        if searchPictureViewModel.isAlreadyAddedToFavorite() {
-            btnFavorite.isSelected = true
-        } else {
-            btnFavorite.isSelected = false
-        }
+        renderUIWith(date: objAPOD.date, title: objAPOD.title, explanation: objAPOD.explanation, mediaType: objAPOD.media_type, urlString: str)
         
     }
     
@@ -95,29 +83,39 @@ class SearchPictureViewController: UIViewController {
         guard let objFav = searchPictureViewModel.objFav else {
             return
         }
-        
-        lblDate.text = objFav.date
-        lblTitle.text = objFav.title
-        lblExplanation.text = objFav.explanation
         var str: String? = objFav.hdurl
-        if objFav.media_type == "video" {
+        if objFav.media_type == APIJSONKeys.video {
             str = objFav.thumbnail_url
             btnPlay.isHidden = false
         } else {
             btnPlay.isHidden = true
         }
-        if let strURL = str, let url = URL(string: strURL) {
+        
+        renderUIWith(date: objFav.date, title: objFav.title, explanation: objFav.explanation, mediaType: objFav.media_type, urlString: str)
+        
+    }
+    
+    func renderUIWith(date: String?, title: String?, explanation: String?, mediaType: String?, urlString: String?) {
+        
+        if let strURL = urlString, let url = URL(string: strURL) {
             activityIndicatorImageLoading.startAnimating()
             imgView.getImageFromServer(url: url) { isSuccess in
-                self.activityIndicatorImageLoading.stopAnimating()
+                DispatchQueue.main.async {
+                    self.activityIndicatorImageLoading.stopAnimating()
+                }
+                
             }
         }
+        lblDate.text = date
+        lblTitle.text = title
+        lblExplanation.text = explanation
         if searchPictureViewModel.isAlreadyAddedToFavorite() {
             btnFavorite.isSelected = true
         } else {
             btnFavorite.isSelected = false
         }
     }
+    
     
     // MARK: - Actions
     
@@ -180,8 +178,27 @@ class SearchPictureViewController: UIViewController {
 }
 // MARK: - Extension to conform to SearchPictureViewModelDelegate methods
 extension SearchPictureViewController: SearchPictureViewModelDelegate {
+    func didShowLastFetchedRecord(objLastSearch: LastSearch) {
+        self.scrollView.isHidden = false
+        
+        var str: String? = objLastSearch.hdurl
+        if objLastSearch.media_type == APIJSONKeys.video {
+            str = objLastSearch.thumbnail_url
+            self.btnPlay.isHidden = false
+        } else {
+            self.btnPlay.isHidden = true
+        }
+        self.renderUIWith(date: objLastSearch.date, title: objLastSearch.title, explanation: objLastSearch.explanation, mediaType: objLastSearch.media_type, urlString: str)
+        
+        
+    }
+    
     func showAlertMessage(title: String, message: String, actionTitles: [String], style: [UIAlertAction.Style], actions: [((UIAlertAction) -> Void)?]) {
-        showAlert(title: title, message: message, actionTitles: actionTitles, style: style, actions: actions)
+        DispatchQueue.main.async {
+            self.btnFavorite.isHidden = true
+            self.showAlert(title: title, message: message, actionTitles: actionTitles, style: style, actions: actions)
+        }
+        
     }
     
     func showLoadingIndicator() {
@@ -197,7 +214,10 @@ extension SearchPictureViewController: SearchPictureViewModelDelegate {
     }
     
     func didFetchPicOfDaySuccessfully(objAPOD: APODResponseModel) {
+        btnSelectDate.isHidden = false
+        btnFavorite.isHidden = false
         self.updateUIWith(objAPOD: objAPOD)
+        
     }
 
 }

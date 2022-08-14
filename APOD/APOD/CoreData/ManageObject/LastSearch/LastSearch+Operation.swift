@@ -10,7 +10,6 @@ import CoreData
 extension LastSearch {
     /**
      Function to delete last searched object
-     - parameter date: date for which object need to delete
      */
     static func deleteLastSearchEntry() {
         let fetchRequest: NSFetchRequest<LastSearch> = LastSearch.fetchRequest()
@@ -31,8 +30,6 @@ extension LastSearch {
      - parameter objAPOD: last search obj
      */
     static func saveToLastSearch(objAPOD: APODResponseModel) {
-        
-        
         let obj = LastSearch(context: AppDelegate.sharedAppDelegate.coreDataStack.managedContext)
         obj.title = objAPOD.title
         obj.hdurl = objAPOD.hdurl
@@ -45,4 +42,21 @@ extension LastSearch {
         print("======Saved to Last Search")
     }
 
+    
+    /**
+     Function to fetched last search object
+     */
+    static func fetchLastSearchRecord() -> LastSearch? {
+        let fetchRequest: NSFetchRequest<LastSearch> = LastSearch.fetchRequest()
+        do {
+            let objects = try AppDelegate.sharedAppDelegate.coreDataStack.managedContext.fetch(fetchRequest)
+            if objects.count > 0 {
+                return objects.first
+            }
+            return nil
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+            return nil
+        }
+    }
 }

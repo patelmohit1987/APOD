@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 /// enum to keep track of flow either Search screen or favorite detail screen
 enum Flow {
@@ -29,6 +30,11 @@ protocol SearchPictureViewModelDelegate: BaseViewModelDelegate {
      Method to notify API success
      */
     func didFetchPicOfDaySuccessfully(objAPOD: APODResponseModel)
+    
+    /**
+     Method to display last fetched data in case of not network
+     */
+    func didShowLastFetchedRecord(objLastSearch: LastSearch)
 }
 
 /// View model class for Search Picture
@@ -53,8 +59,8 @@ class SearchPictureViewModel: BaseViewModel {
     /**
      Function to display alert in case of APOD API fails
      */
-    private func failedToFetchPicture() {
-        delegate?.showAlertMessage(title: StringLiterals.alertTitle_Fail, message: StringLiterals.alertMessage, actionTitles: [StringLiterals.alertButton_OK], style: [.default], actions: [nil])
+    private func failedToFetchPicture(message: String) {
+        delegate?.showAlertMessage(title: StringLiterals.alertTitle_Fail, message: message, actionTitles: [StringLiterals.alertButton_OK], style: [.default], actions: [nil])
     }
     
     /**
@@ -112,6 +118,16 @@ class SearchPictureViewModel: BaseViewModel {
             return false
         }
     }
+    
+    /**
+     Function to fetch last fetched record
+     */
+    func fetchLastRecord() {
+        if let obj = LastSearch.fetchLastSearchRecord() {
+            
+            delegate?.didShowLastFetchedRecord(objLastSearch: obj)
+        }
+    }
 }
 /// MARK: - API calls
 extension SearchPictureViewModel {
@@ -119,7 +135,12 @@ extension SearchPictureViewModel {
      Function to fetch Picture detail for given date
      */
     func getPictureDetail() {
-        
+        if !ReachabilityManager.shared.isNetworkAvailable() {
+            print("Network is not available, Display last updated information")
+            failedToFetchPicture(message: StringLiterals.alertMessageNoNetwork)
+            fetchLastRecord()
+            return
+        }
         guard let strDate = selectedDate.string(format: DateFormat.API_DATE_FORMAT) else {
             return
         }
@@ -134,7 +155,7 @@ extension SearchPictureViewModel {
             self?.delegate?.didFetchPicOfDaySuccessfully(objAPOD: obj)
         } failureCallback: { [weak self] error in
             self?.delegate?.hideLoadingIndicator()
-            self?.failedToFetchPicture()
+            self?.failedToFetchPicture(message: StringLiterals.alertMessage)
         }
     }
 }

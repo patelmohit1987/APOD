@@ -23,5 +23,6 @@ struct StringLiterals {
     static let fail = "Fail!"
     static let alertTitle_Fail = "Fail!"
     static let alertMessage = "Fail to fetch picture at this time."
+    static let alertMessageNoNetwork = "No Network. Showing last fetched record."
     static let alertButton_OK = "OK"
 }
