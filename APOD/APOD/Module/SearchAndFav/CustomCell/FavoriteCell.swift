@@ -38,7 +38,10 @@ class FavoriteCell: UITableViewCell {
         if let strURL = str, let url = URL(string: strURL) {
             activityIndicator.startAnimating()
             imgView.getImageFromServer(url: url) { isSuccess in
-                self.activityIndicator.stopAnimating()
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+                
             }
         }
     }
