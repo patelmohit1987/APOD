@@ -89,6 +89,14 @@ class SearchPictureViewModel: BaseViewModel {
     }
     
     /**
+     Function to store object in last search table
+     */
+    func addToLastSearch(obj: APODResponseModel) {
+        LastSearch.deleteLastSearchEntry()
+        LastSearch.saveToLastSearch(objAPOD: obj)
+    }
+    
+    /**
      Function to check of the object is already added to fav
      */
     func isAlreadyAddedToFavorite() -> Bool {
@@ -122,6 +130,7 @@ extension SearchPictureViewModel {
             self?.delegate?.hideLoadingIndicator()
             guard let obj = resp as? APODResponseModel else { return }
             self?.objAPOD = obj
+            self?.addToLastSearch(obj: obj)
             self?.delegate?.didFetchPicOfDaySuccessfully(objAPOD: obj)
         } failureCallback: { [weak self] error in
             self?.delegate?.hideLoadingIndicator()

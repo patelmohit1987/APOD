@@ -9,7 +9,17 @@
         <attribute name="title" optional="YES" attributeType="String" defaultValueString=""/>
         <attribute name="url" optional="YES" attributeType="String" defaultValueString=""/>
     </entity>
+    <entity name="LastSearch" representedClassName=".LastSearch" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="explanation" optional="YES" attributeType="String"/>
+        <attribute name="hdurl" optional="YES" attributeType="String"/>
+        <attribute name="media_type" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail_url" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Favorite" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="LastSearch" positionX="-36" positionY="63" width="128" height="134"/>
     </elements>
 </model>
