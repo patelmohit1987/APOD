@@ -1,0 +1,13 @@
+# use frameworks instead of static libs
+use_frameworks!
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+target 'APOD' do
+    platform :ios, '13.0'
+    
+    # Network
+    pod 'Moya', '~> 13.0'   
+
+end
