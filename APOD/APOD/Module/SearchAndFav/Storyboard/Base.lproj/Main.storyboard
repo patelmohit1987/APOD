@@ -274,8 +274,8 @@
                             <constraint firstItem="k5T-ZC-Qet" firstAttribute="trailing" secondItem="ORA-0R-U8v" secondAttribute="trailing" constant="20" id="BCX-wm-eGT"/>
                             <constraint firstItem="ZB9-1e-pY4" firstAttribute="top" secondItem="k5T-ZC-Qet" secondAttribute="top" constant="10" id="Eo7-rK-a2l"/>
                             <constraint firstItem="1H7-cd-Hmg" firstAttribute="top" secondItem="ZB9-1e-pY4" secondAttribute="bottom" constant="8" id="G2m-Zl-EDe"/>
-                            <constraint firstItem="1H7-cd-Hmg" firstAttribute="leading" secondItem="dLK-VK-cUV" secondAttribute="leading" id="JwQ-rS-vv2"/>
-                            <constraint firstAttribute="trailing" secondItem="1H7-cd-Hmg" secondAttribute="trailing" id="RbO-Yl-vC2"/>
+                            <constraint firstItem="1H7-cd-Hmg" firstAttribute="leading" secondItem="k5T-ZC-Qet" secondAttribute="leading" id="JwQ-rS-vv2"/>
+                            <constraint firstItem="k5T-ZC-Qet" firstAttribute="trailing" secondItem="1H7-cd-Hmg" secondAttribute="trailing" id="RbO-Yl-vC2"/>
                             <constraint firstItem="Aza-0A-p9b" firstAttribute="height" secondItem="dLK-VK-cUV" secondAttribute="height" multiplier="0.4" id="WIV-SD-XuP"/>
                             <constraint firstItem="yTA-Ed-gFI" firstAttribute="leading" secondItem="dLK-VK-cUV" secondAttribute="leading" id="jYk-Kq-0T1"/>
                             <constraint firstItem="ORA-0R-U8v" firstAttribute="top" secondItem="k5T-ZC-Qet" secondAttribute="top" constant="11" id="kbC-bG-ZYh"/>
